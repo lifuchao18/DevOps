@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block title %}
+  OS信息录入
+{% endblock %}
+
+{% block content %}
+  <form action="" method="post" id="myform">
+    {% csrf_token %}
+    <div class="form-group">
+    <label for="ip">IP</label>
+    <input type="text" class="form-control" id="ip" name="ip" placeholder="192.169.1.1">
+    <select name=cpu class="col-xs-2">
+      <option value="2">2C</option>
+      <option value="4">4C</option>
+      <option value="8">8C</option>
+    </select>
+    <select name=mem class="col-xs-2">
+      <option value="2">2G</option>
+      <option value="4">4G</option>
+      <option value="8">8G</option>
+    </select>
+    <button type="submit" class="btn btn-default" onclick="formReset()">提交</button>
+    </div>
+  </form>
+{% endblock %}
+
+{% block js %}
+  <script type="text/javascript">
+    function fomrReset()
+    {
+      document.getElementById("myform").reset();
+    }
+  </script>
+{% endblock %}
